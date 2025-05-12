@@ -63,4 +63,4 @@ export const { fetchStart, fetchFail, getSuccessProduct, addFavorites, removeFav
 
 
 
-export default productsSlice.reducer
+export const productsReducer =  productsSlice.reducer
