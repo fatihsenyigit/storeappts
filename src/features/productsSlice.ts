@@ -1,7 +1,5 @@
-
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../app/store'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface Product {
   id: number;
@@ -30,14 +28,14 @@ const initialState: ProductsState = {
   error: false,
   favorites: [],
   productsList: [],
-}
+};
 
 export const productsSlice = createSlice({
-  name: 'products',
+  name: "products",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    fetchStart(state){
+    fetchStart(state) {
       state.loading = true;
       state.loading = false;
     },
@@ -55,12 +53,16 @@ export const productsSlice = createSlice({
     fetchFail(state) {
       state.loading = false;
       state.error = true;
-    }
+    },
   },
-})
+});
 
-export const { fetchStart, fetchFail, getSuccessProduct, addFavorites, removeFavorites } = productsSlice.actions
+export const {
+  fetchStart,
+  fetchFail,
+  getSuccessProduct,
+  addFavorites,
+  removeFavorites,
+} = productsSlice.actions;
 
-
-
-export const productsReducer =  productsSlice.reducer
+export const productsReducer = productsSlice.reducer;
