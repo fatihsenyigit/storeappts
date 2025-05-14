@@ -3,14 +3,9 @@ import Search from '../components/Search'
 import axios from 'axios'
 import { useAppDispatch } from '../app/hooks';
 import { fetchFail, fetchStart, getSuccessProduct } from '../features/productsSlice';
-import { EventFunc } from '../models/models';
+import { EventFunc, Products } from '../models/models';
 
-export interface Products {
-  products: Product[];
-  total: number; 
-  skip: number;
-  limit: number;
-}
+
 
 const Home = () => {
   //burada type i vermemize gerek yok
