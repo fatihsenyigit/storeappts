@@ -5,6 +5,7 @@ import FavoritesPage from "./pages/FavoritesPage";
 import NavBar from "./components/NavBar";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { ToastContainer, Zoom } from "react-toastify";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       </Provider>
+      <ToastContainer transition={Zoom}></ToastContainer>
       
     </div>
   );

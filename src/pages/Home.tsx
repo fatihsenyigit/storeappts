@@ -10,6 +10,7 @@ import {
 } from "../features/productsSlice";
 import { EventFunc, Product, Products } from "../models/models";
 import Card from "../components/Card";
+import { toastSuccessNotify, toastWarnNotify } from "../helper/ToastNotify";
 
 const Home = () => {
   //burada type i vermemize gerek yok
@@ -49,6 +50,9 @@ const Home = () => {
   const handleAdd = (product:Product) => {
     if(favorites.filter(item=> item.id === product.id).length === 0) {
       dispatch(addFavorites(product))
+      toastSuccessNotify('products added')
+    } else {
+      toastWarnNotify('already added')
     }
   }
 
