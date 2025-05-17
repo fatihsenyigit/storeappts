@@ -11,7 +11,7 @@ const Card: React.FC<Icard> = ({ item, text, handleFunc }) => {
   return (
     <div className="w-10/12 sm:w-6/12 md:w-4/12 lg:w-3/12 flex flex-col justify-between bg-white rounded-lg">
       <div className="p-4">
-        <h1 className="text-gray-900 uppercase text-xl">{item.title}</h1>
+        <h1 className="text-gray-900 uppercase text-xl line-clamp-1 hover:line-clamp-none">{item.title}</h1>
         <p className="text-sm mt-2 text-gray-500 line-clamp-1 hover:line-clamp-none">
           {item.description}
         </p>

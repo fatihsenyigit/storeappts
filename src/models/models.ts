@@ -20,3 +20,5 @@ export interface Products {
   skip: number;
   limit: number;
 }
+
+export type VoidFunc = (product:Product) => void
