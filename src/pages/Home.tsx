@@ -3,17 +3,19 @@ import Search from "../components/Search";
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import {
+  addFavorites,
   fetchFail,
   fetchStart,
   getSuccessProduct,
 } from "../features/productsSlice";
-import { EventFunc, Products } from "../models/models";
+import { EventFunc, Product, Products } from "../models/models";
+import Card from "../components/Card";
 
 const Home = () => {
   //burada type i vermemize gerek yok
   const [search, setSearch] = useState<string>("");
   const dispatch = useAppDispatch();
-  const { loading, error, productsList } = useAppSelector(
+  const { loading, error, productsList, favorites } = useAppSelector(
     (state) => state.products
   );
 
@@ -44,6 +46,12 @@ const Home = () => {
     setSearch(e.target.value);
   };
 
+  const handleAdd = (product:Product) => {
+    if(favorites.filter(item=> item.id === product.id).length === 0) {
+      dispatch(addFavorites(product))
+    }
+  }
+
   return (
     <div>
       <Search handleChange={handleChange}></Search>
@@ -59,7 +67,7 @@ const Home = () => {
         ) : (
           <div className="flex justify-center items-center flex-wrap gap-5 p-5">
             {productsList.map((item) => (
-              <p>{item.title}</p>
+              <Card key={item.id} text='add to favorites' item={item} handleFunc={handleAdd}></Card>
             ))}
           </div>
         )
